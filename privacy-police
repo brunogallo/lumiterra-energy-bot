@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Lumiterra Energy Discord Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Privacy Policy</h1>
+        <p>
+            We value your privacy. Here's how we handle your information:
+        </p>
+        <ul>
+            <li>The bot does not collect or store any personal information.</li>
+            <li>All data processed by the bot is used solely to retrieve and display market prices from the Ronin MavisHub.</li>
+            <li>We do not share or sell any data with third parties.</li>
+            <li>Your usage of this bot is anonymous, and no user accounts or authentication are required.</li>
+        </ul>
+        <p>If you have any questions, feel free to contact us via our support channels.</p>
+    </div>
+</body>
+</html>
