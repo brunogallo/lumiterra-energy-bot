@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/commands.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="shortcut icon" href="../img/" type="image/x-icon" />
+    <title>Lumibot - Lumiterra discord bot</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <div class="navbar navbar-expand-md bg-dark navbar-dark">
+      <div class="container">
+        <a href="../index.html" class="navbar-brand text-warning">LUMIBOT</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainmenu">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="linksdrop"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Links</a
+              >
+              <ul class="dropdown-menu bg-dark" aria-labelledby="linksdrop">
+                <li>
+                  <a
+                    class="dropdown-item text-muted"
+                    target="_blank"
+                    href="https://discord.com/oauth2/authorize?client_id=1273266712258810057"
+                    >Invite</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-muted"
+                    href="https://github.com/brunogallo/lumibot"
+                    target="_blank"
+                    >Github</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-muted"
+                    href="https://discord.gg/ycWy33wc"
+                    target="_blank"
+                    >Support Server</a
+                  >
+                </li>
+                <li>
+                    <a
+                      class="dropdown-item text-muted"
+                      href="https://lumiterra-energy-bot.vercel.app/tos.html" target="_blank"
+                      >Terms of Service</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item text-muted"
+                      href="https://lumiterra-energy-bot.vercel.app/privacy-police.html" target="_blank"
+                      >Privacy Policy</a
+                    >
+                  </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <section style="margin-top: 9%">
+        <div class="row">
+          <div class="col-sm-6 my-1">
+            <h2 class="fw-bold">Lumibot Commands</h2>
+            <p class="command-descreption">
+              Find all LUMIBOT commands and information you need fast and easy
+            </p>
+          </div>
+        </div>
+        <hr />
+      </section>
+      <div class="row">
+        <div class="col-md-4 my-2">
+          <div class="card p-3">
+            <h5>Select Commands Category</h5>
+            <hr />
+            <button
+              onclick="active(this)"
+              id="CategoryBtnAll"
+              class="text-decoration-none btn btn-primary mt-2 my-1 p-2"
+            >
+              <i class="fad fa-icons ttt"></i>&nbsp; All Commands
+            </button>
+
+            <button
+              onclick="active(this)"
+              id="CategoryBtn0"
+              class="text-decoration-none btn btn-primary mt-2 my-1 p-2"
+            >
+              <i class="fas fa-gift ttt"></i>&nbsp; Energy Commands
+            </button>
+          </div>
+        </div>
+        <div class="col-md-8 my-2">
+          <div class="commands-section" id="Category0">
+            <div class="accordion accordion-flush mt-2" id="ban">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#fban"
+                  >
+                    /energy&nbsp;
+                    <span class="command-descreption">- Find the cheapest energy on the market.</span>
+                  </button>
+                </h2>
+                <div
+                  id="fban"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#ban"
+                >
+                  <div class="accordion-body">
+                    <span>Usage Examples:</span> <br />
+                    <span class="examples"> /energy<br /> </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <!-- footer -->
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/fontawesome/all.min.js"></script>
+    <script src="/js/animation.js"></script>
+    <script>
+      function active(elm) {
+        document.getElementById("CategoryBtnAll").classList.remove("active");
+        document.getElementById("CategoryBtn0").classList.remove("active");
+        document.getElementById("Category0").setAttribute("hidden", "");
+
+        elm.classList.add("active");
+        if (elm.id.replace("CategoryBtn", "") == "All") {
+          document.getElementById("Category0").removeAttribute("hidden");
+        } else {
+          document
+            .getElementById("Category" + elm.id.replace("CategoryBtn", ""))
+            .removeAttribute("hidden");
+        }
+      }
+      document.getElementById("CategoryBtnAll").click();
+      function search(arg) {
+        let commands = JSON.parse(document.getElementById("commands").value);
+        let cmds = [];
+        commands.forEach((category) => {
+          category.commands.forEach((command) => {
+            cmds.push(command);
+          });
+        });
+        let existedCmds = cmds.filter((obj) => obj.includes(arg.toLowerCase()));
+        cmds.forEach((cmd) => {
+          document.getElementById(cmd).setAttribute("hidden", "");
+        });
+        existedCmds.forEach((cmd) => {
+          document.getElementById(cmd).removeAttribute("hidden");
+        });
+      }
+    </script>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>
